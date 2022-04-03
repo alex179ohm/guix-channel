@@ -6,7 +6,7 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix utils))
 
-(define-pubblic rust-aodv
+(define-public rust-aodv
     (package
         (name "rust-aodv")
         (version "0.1")
