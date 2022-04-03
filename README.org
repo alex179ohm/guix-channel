@@ -1,3 +1,3 @@
-#+html: <p align="center">
+#+<p align="center">
 #+TITLE: Ohm Guix Channel
-#+html: </p>
+#+</p>
