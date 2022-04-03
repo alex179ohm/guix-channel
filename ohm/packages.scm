@@ -18,9 +18,7 @@
                 (method git-fetch)
                 (uri (git-reference
                         (url "https://github.com/alex179ohm/aodv.git")
-                        ;;(commit "a606d63")
                         (commit "f21ccc6")
-                        ;;(commit "main")
                         ))
                 (sha256
                 (base32
