@@ -1,1 +1,3 @@
-#+TITLE: alex179ohm's Guix Channel
+#+html: <p align="center">
+#+TITLE: Ohm Guix Channel
+#+html: </p>
