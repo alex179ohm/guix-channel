@@ -1,7 +1,1 @@
-#+html: <div align="center">
-#+html_head: <style type="text/css">
-#+html_head:      .title {
-#+html_head:         align: center;
-#+html_head:      }
-#+html_head: </style>
 #+title: Ohm Guix Channel
