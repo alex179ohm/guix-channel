@@ -1,4 +1,0 @@
-#+ATTR_HTML: :style text-align:center;
-#+BEGIN_div
-#+HTML: <h1>Ohm Guix Channel</h1>
-#+END_div
