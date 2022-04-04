@@ -59,3 +59,17 @@ Pull and update your packages collection:
 guix pull
 guix install your_preferred_ohm_package
 ```
+
+## Git Repository
+
+If you want to just install some packages provided by this channel clone the repository:
+
+```sh
+git clone https://gitlab.com/alex179ohm/guix-channel.git
+```
+
+Load the channel local path and install your preferred package:
+
+```sh
+guix install --load-path ./guix-channel your_preferred_ohm_package
+```
