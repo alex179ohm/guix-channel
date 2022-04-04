@@ -17,7 +17,7 @@ For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to 
 The preferred way to install the channel is to configure Guix to use this channel as additional channel.
 This add at your package collection the packages definited in this channel.
 
-Create the channels configuration file at _~/.config/guix/channels.scm_ and then add the snippet below:
+Create the channels configuration file at **~/.config/guix/channels.scm** and then add the snippet below:
 
 ```scheme
 (cons* (channel
@@ -31,7 +31,7 @@ Create the channels configuration file at _~/.config/guix/channels.scm_ and then
        %default-channels)
 ```
 
-If your channels file is already populated then just add the channel to your channels list:
+If your **~/.config/guix/channels.scm** file is already populated then just add the channel to your channels list:
 
 ```scheme
 (cons* (channel
