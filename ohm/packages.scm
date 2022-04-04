@@ -12,7 +12,7 @@
         (version "0.1")
         (build-system cargo-build-system)
         (synopsis "aodv:  Ad Hoc Distance Vector based link Protocol")
-        (description "")
+        (description "Ad Hoc Distance Vector based link Protocol implemented in Rust programming language")
         (home-page "https://github.com/alex179ohm/aodv")
         (source (origin
                 (method git-fetch)
@@ -28,3 +28,4 @@
         (("rust-bytes" ,rust-bytes-1)
             ("rust-socket2" ,rust-socket2-0.4))))
     (license (list license:expat license:asl2.0))))
+
