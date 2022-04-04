@@ -8,7 +8,7 @@
 
 This is the Ohm's collection of [GNU Guix](https://guix.gnu.org/) package derivations.
 
-For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to the [Guix Manual](https://guix.gnu.org/manual/en/html_node/Installation.html)
+For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to the [GNU Guix Manual](https://guix.gnu.org/manual/en/html_node/Installation.html)
 
 # Usage
 
@@ -16,6 +16,8 @@ For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to 
 
 The preferred way to install the channel is to configure Guix to use this channel as additional channel.
 This add at your package collection the packages definited in this channel.
+
+Create the channels configuration file at _~/.config/guix/channels.scm_ and then add the snippet below:
 
 ```scheme
 (cons* (channel
