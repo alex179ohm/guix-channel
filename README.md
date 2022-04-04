@@ -31,7 +31,29 @@ Create the channels configuration file at _~/.config/guix/channels.scm_ and then
        %default-channels)
 ```
 
-and then:
+If your channels file is already populated then just add the channel to your channels list:
+
+```scheme
+(cons* (channel
+        (name 'flat)
+        (url "https://github.com/flatwhatson/guix-channel.git")
+        (introduction
+         (make-channel-introduction
+          "33f86a4b48205c0dc19d7c036c85393f0766f806"
+          (openpgp-fingerprint
+           "736A C00E 1254 378B A982  7AF6 9DBE 8265 81B6 4490"))))
+       (channel
+        (name 'ohm)
+        (url "https://gitlab.com/alex179ohm/guix-channel.git")
+        (branch "main")
+        (introduction
+         (make-channel-introduction
+          "6c5f2caa1c7cd8fe93f47bd7599154efd6d79cd0"
+          (openpgp-fingerprint "4EFC 6361 A803 766C D3E0  A0CF 5527 5581 D13C CEE2"))))
+       %default-channels)
+```
+
+Pull and update your packages collection:
 
 ```sh
 guix pull
