@@ -8,10 +8,10 @@
 
 ## Table of Contents:
 
-    - [Install GNU Guix](#install-gnu-guix)
-    - [Usage](#usage)
-      - [Guix channel configuration](#guix-channel-configuration)
-      - [Git repository](#git-repository)
+- [Install GNU Guix](#install-gnu-guix)
+- [Usage](#usage)
+  - [Guix channel configuration](#guix-channel-configuration)
+  - [Git repository](#git-repository)
 
 ## Install GNU Guix
 
