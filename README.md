@@ -8,12 +8,12 @@
 
 ## Table of Contents:
 
-- [Install GNU Guix](#install-gnu-guix)
+- [Introduction](#introduction)
 - [Usage](#usage)
   - [Guix channel configuration](#guix-channel-configuration)
   - [Git repository](#git-repository)
 
-## Install GNU Guix
+## Introduction
 
 This is the Ohm's collection of [GNU Guix](https://guix.gnu.org/) package derivations.
 
