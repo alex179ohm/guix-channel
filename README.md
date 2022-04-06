@@ -6,13 +6,22 @@
 
 </div>
 
+## Table of Contents:
+
+    - [Install GNU Guix](#install-gnu-guix)
+    - [Usage](#usage)
+      - [Guix channel configuration](#guix-channel-configuration)
+      - [Git repository](#git-repository)
+
+## Install GNU Guix
+
 This is the Ohm's collection of [GNU Guix](https://guix.gnu.org/) package derivations.
 
 For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to the [GNU Guix Manual](https://guix.gnu.org/manual/en/html_node/Installation.html)
 
-# Usage
+## Usage
 
-## Guix Channel Configuration
+### Guix Channel Configuration
 
 The preferred way to install the channel is to configure Guix to use this channel as additional channel.
 This add at your package collection the packages definited in this channel.
@@ -60,7 +69,7 @@ guix pull
 guix install your_preferred_ohm_package
 ```
 
-## Git Repository
+### Git Repository
 
 If you want to just install some packages provided by this channel clone the repository:
 
