@@ -15,8 +15,18 @@
 ;;; You should have received a copy of the GNU General Public License
 ;;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-(define-module (ohm packages bemenu)
-  #:use-module (gnu packages xdisorg))
+(define-module (ohm package bemenu)
+  #:use-module (guix packages)
+  #:use-module (guix git-download)
+  #:use-module (guix build-system gnu)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (gnu packages documentation)
+  #:use-module (gnu packages freedesktop)
+  #:use-module (gnu packages gtk)
+  #:use-module (gnu packages ncurses)
+  #:use-module (gnu packages xdisorg)
+  #:use-module (gnu packages xorg))
+
 
 (define-public bemenu-latest
   (package (inherit bemenu)
