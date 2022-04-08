@@ -16,7 +16,7 @@
 ;;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-(define-package (ohm packages rust)
+(define-module (ohm packages rust)
   #:use-module (guix packages)
   #:use-module (gnu packages crates-io)
   #:use-module (guix git-download)
