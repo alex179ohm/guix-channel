@@ -38,12 +38,12 @@ FILE-NAME found in %PATCH-PATH."
 
 (define %channel-root
   (find (lambda (path)
-          (file-exists? (string-append path "/flat/packages.scm")))
+          (file-exists? (string-append path "/ohm/packages.scm")))
         %load-path))
 
 (define %patch-path
   (make-parameter
    (cons
-    (string-append %channel-root "/flat/packages/patches")
+    (string-append %channel-root "/ohm/packages/patches")
     (gnu:%patch-path))))
 
