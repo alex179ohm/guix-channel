@@ -17,33 +17,33 @@
 
 
 (define-module (ohm packages)
-  #:use-module (guix packages)
-  #:use-module (gnu packages crates-io)
-  #:use-module (guix git-download)
-  #:use-module (guix build-system cargo)
-  #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (guix utils))
+  #:use-module ((gnu packages) #:prefix gnu:)
+  #:use-module (guix diagnostics)
+  #:use-module (guix i18n)
+  #:use-module (srfi srfi-1)
+  #:export (search-patch
+            search-patches
+            %patch-path))
 
-(define-public rust-aodv
-    (package
-        (name "rust-aodv")
-        (version "0.1")
-        (build-system cargo-build-system)
-        (synopsis "aodv:  Ad Hoc Distance Vector based link Protocol")
-        (description "Ad Hoc Distance Vector based link Protocol implemented in Rust programming language")
-        (home-page "https://github.com/alex179ohm/aodv")
-        (source (origin
-                (method git-fetch)
-                (uri (git-reference
-                        (url "https://github.com/alex179ohm/aodv.git")
-                        (commit "f21ccc6")
-                        ))
-                (sha256
-                (base32
-                "0gbp6imky8p8l1sq7arzgly680ryz251cbakdckic296jhidbmkk"))))
-        (arguments
-        `(#:cargo-inputs
-        (("rust-bytes" ,rust-bytes-1)
-            ("rust-socket2" ,rust-socket2-0.4))))
-    (license (list license:expat license:asl2.0))))
+(define (search-patch file-name)
+  "Search the patch FILE-NAME.  Raise an error if not found."
+  (or (search-path (%patch-path) file-name)
+      (raise (formatted-message (G_ "~a: patch not found")
+                                file-name))))
+
+(define-syntax-rule (search-patches file-name ...)
+  "Return the list of absolute file names corresponding to each
+FILE-NAME found in %PATCH-PATH."
+  (list (search-patch file-name) ...))
+
+(define %channel-root
+  (find (lambda (path)
+          (file-exists? (string-append path "/flat/packages.scm")))
+        %load-path))
+
+(define %patch-path
+  (make-parameter
+   (cons
+    (string-append %channel-root "/flat/packages/patches")
+    (gnu:%patch-path))))
 
