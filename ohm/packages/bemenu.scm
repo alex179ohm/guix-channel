@@ -16,58 +16,8 @@
 ;;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 (define-module (ohm packages bemenu)
-  #:use-module (guix packages)
-  #:use-module (guix git-download)
-  #:use-module (guix build-system gnu)
-  #:use-module ((guix licenses) #:prefix license:)
-  #:use-module (gnu packages documentation)
-  #:use-module (gnu packages freedesktop)
-  #:use-module (gnu packages gtk)
-  #:use-module (gnu packages ncurses)
-  #:use-module (gnu packages xdisorg)
-  #:use-module (gnu packages xorg))
+  #:use-module (gnu packages xdisorg))
 
-
-(define-public bemenu
-  (package
-    (name "bemenu")
-    (version "0.6.7")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/Cloudef/bemenu")
-             (commit version)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32 "18vplvnymgc6576sdh84lm5rlwyb9d038plqpjs638hzskf4q577"))))
-    (build-system gnu-build-system)
-    (arguments
-     `(#:tests? #f
-       #:make-flags (list ,(string-append "CC=" (cc-for-target))
-                          "CFLAGS=-O2 -fPIC"
-                          (string-append "LDFLAGS=-Wl,-rpath="
-                                         (assoc-ref %outputs "out") "/lib")
-                          (string-append "PREFIX=" (assoc-ref %outputs "out")))
-       #:phases
-       (modify-phases %standard-phases
-     (inputs
-     `(("cairo" ,cairo)
-       ("libx11" ,libx11)
-       ("libxkbcomon" ,libxkbcommon)
-       ("libxinerama" ,libxinerama)
-       ("ncurses" ,ncurses)
-       ("pango" ,pango)
-       ("wayland" ,wayland)
-       ("wayland-protocols" ,wayland-protocols)))
-        (delete 'configure))))         ; no configure script
-    (native-inputs
-     (list doxygen pkg-config))
-    (home-page "https://github.com/Cloudef/bemenu")
-    (synopsis "Dynamic menu library and client program inspired by dmenu")
-    (description
-     "bemenu is a dynamic menu which allows the user to flexibly select from a
-list of options (usually programs to launch).  It renders the menu graphically
-with X11 or Wayland, or in a text terminal with ncurses.")
-    (license (list license:gpl3+ ; client program[s] and other sources
-                   license:lgpl3+))))   ; library and bindings
+(define-public bemenu-latest
+  (package (inherit bemenu)
+    (version "0.6.7")))
