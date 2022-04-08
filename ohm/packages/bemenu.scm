@@ -17,25 +17,57 @@
 
 (define-module (ohm packages bemenu)
   #:use-module (guix packages)
-  #:use-module (guix download)
+  #:use-module (guix git-download)
   #:use-module (guix build-system gnu)
-  #:use-module (guix licenses)
-  #:use-module (gnu packages gawk))
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (gnu packages documentation)
+  #:use-module (gnu packages freedesktop)
+  #:use-module (gnu packages gtk)
+  #:use-module (gnu packages ncurses)
+  #:use-module (gnu packages xdisorg)
+  #:use-module (gnu packages xorg))
 
-(define-public bemenu-0.6
+
+(define-public bemenu
   (package
     (name "bemenu")
     (version "0.6.7")
-    (source (origin
-              (method url-fetch)
-              (uri (string-append "https://github.com/Cloudef/" name "/releases/download/" version "/" name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "0hpikx99g99hmnjp1jnx90sz9ckqc2hvafldlvh45xmhxfzgz0l9"))))
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Cloudef/bemenu")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "18vplvnymgc6576sdh84lm5rlwyb9d038plqpjs638hzskf4q577"))))
     (build-system gnu-build-system)
-    (arguments '(#:configure-flags '("--enable-silent-rules")))
-    (inputs `(("gawk" ,gawk)))
-    (synopsis "Hello, GNU world: An example GNU package")
-    (description "Guess what GNU Hello prints!")
-    (home-page "https://www.gnu.org/software/hello/")
-    (license gpl3+)))
+    (arguments
+     `(#:tests? #f
+       #:make-flags (list ,(string-append "CC=" (cc-for-target))
+                          "CFLAGS=-O2 -fPIC"
+                          (string-append "LDFLAGS=-Wl,-rpath="
+                                         (assoc-ref %outputs "out") "/lib")
+                          (string-append "PREFIX=" (assoc-ref %outputs "out")))
+       #:phases
+       (modify-phases %standard-phases
+     (inputs
+     `(("cairo" ,cairo)
+       ("libx11" ,libx11)
+       ("libxkbcomon" ,libxkbcommon)
+       ("libxinerama" ,libxinerama)
+       ("ncurses" ,ncurses)
+       ("pango" ,pango)
+       ("wayland" ,wayland)
+       ("wayland-protocols" ,wayland-protocols)))
+        (delete 'configure))))         ; no configure script
+    (native-inputs
+     (list doxygen pkg-config))
+    (home-page "https://github.com/Cloudef/bemenu")
+    (synopsis "Dynamic menu library and client program inspired by dmenu")
+    (description
+     "bemenu is a dynamic menu which allows the user to flexibly select from a
+list of options (usually programs to launch).  It renders the menu graphically
+with X11 or Wayland, or in a text terminal with ncurses.")
+    (license (list license:gpl3+ ; client program[s] and other sources
+                   license:lgpl3+))))   ; library and bindings
