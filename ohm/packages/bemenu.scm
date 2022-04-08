@@ -29,6 +29,6 @@
 
 
 (define-public bemenu-latest
-  (name "bemenu-latest")
   (package (inherit bemenu)
+    (name "bemenu-latest")
     (version "0.6.7")))
