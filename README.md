@@ -11,13 +11,15 @@
 - [Introduction](#introduction)
 - [Usage](#usage)
   - [Guix channel configuration](#guix-channel-configuration)
-  - [Git repository](#git-repository)
+  - [From Source Code](#from-source-code)
+- [List of Packages](#packages)
+  - [Desktop](#desktop)
 
 ## Introduction
 
-This is the Ohm's collection of [GNU Guix](https://guix.gnu.org/) package derivations.
+This is the Ohm's collection of [GNU Guix](https://guix.gnu.org/) package derivations packaged to be used by linux-based system users.
 
-For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to the [GNU Guix Manual](https://guix.gnu.org/manual/en/html_node/Installation.html)
+For More informations on installing [GNU Guix](https://guix.gnu.org/) refers to the [GNU Guix Manual](https://guix.gnu.org/manual/en/html_node/Binary-Installation.html)
 
 ## Usage
 
@@ -69,7 +71,7 @@ guix pull
 guix install your_preferred_ohm_package
 ```
 
-### Git Repository
+### From Source Code
 
 If you want to just install some packages provided by this channel clone the repository:
 
@@ -82,3 +84,7 @@ Load the channel local path and install your preferred package:
 ```sh
 guix install --load-path ./guix-channel your_preferred_ohm_package
 ```
+
+## Packages
+
+### Desktop
