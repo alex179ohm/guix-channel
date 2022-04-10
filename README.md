@@ -88,3 +88,19 @@ guix install --load-path ./guix-channel your_preferred_ohm_package
 ## Packages
 
 ### Desktop
+
+- bemenu 0.6.7 (latest) [website](https://github.com/Cloudef/bemenu)
+  ```sh
+  $ guix show bemenu
+    name: bemenu
+    version: 0.6.7
+    outputs: out
+    systems: x86_64-linux i686-linux
+    dependencies: cairo@1.16.0 doxygen@1.9.1 libx11@1.7.3.1 libxinerama@1.1.4 libxkbcommon@1.3.0 ncurses@6.2.20210619 pango@1.48.10 pkg-config@0.29.2 wayland-protocols@1.23 wayland@1.19.0
+    location: ohm/packages/bemenu.scm:32:2
+    homepage: https://github.com/Cloudef/bemenu
+    license: GPL 3+, LGPL 3+
+    synopsis: Dynamic menu library and client program inspired by dmenu
+    description: bemenu is a dynamic menu which allows the user to flexibly select from a list of options (usually programs to launch).  It renders the menu graphically with X11 or Wayland, or in a text terminal
+    + with ncurses.
+  ```
